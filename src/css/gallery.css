@@ -1,12 +1,17 @@
 .gallery {
   background-color: rgba(145, 168, 187, 0.301);
-  padding: 18px 16px;
+  /* padding: 18px 16px; */
   margin: 0 auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   column-gap: 24px;
   row-gap: 24px;
+}
+
+.gallery:empty {
+  background: none;
+  padding: 0; /* приберемо падінги */
 }
 
 .gallery-item {

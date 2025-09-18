@@ -1,19 +1,20 @@
-import SimpleLightbox from "simplelightbox";
-import "simplelightbox/dist/simple-lightbox.min.css";
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 export default createGallery;
 
-const gallery = document.querySelector(".gallery");
-
+const gallery = document.querySelector('.gallery');
 
 function createGallery(images) {
-let list = "";
-images.forEach(image => {
-list = list + `<li class="gallery-item">
+  let list = '';
+  images.forEach(image => {
+    list =
+      list +
+      `<li class="gallery-item">
   <a class="gallery-link" href="${image.largeImageURL}">
     <img
       class="gallery-image"
       src="${image.webformatURL}"
-           alt="${image.tags}"
+      alt="${image.tags}"
     />
   </a>
   <ul class="image-attribute-list">
@@ -21,43 +22,42 @@ list = list + `<li class="gallery-item">
   <p>Likes</p>
   <p>${image.likes}</p>
   </lI>
-   <lI class="image-attribute-list-item">
-   <p>Views</p>
+  <lI class="image-attribute-list-item">
+  <p>Views</p>
   <p>${image.views}</p>
   </lI>
-   <lI class="image-attribute-list-item">
-   <p>Comments</p>
+  <lI class="image-attribute-list-item">
+  <p>Comments</p>
   <p>${image.comments}</p>
   </lI>
-   <lI class="image-attribute-list-item">
-   <p>Downloads</p>
+  <lI class="image-attribute-list-item">
+  <p>Downloads</p>
   <p>${image.downloads}</p>
   </lI>
   </ul> 
-</li>`
-});
+</li>`;
+  });
 
-    gallery.insertAdjacentHTML("beforeend", list);
-modal.refresh()
-
+  gallery.insertAdjacentHTML('beforeend', list);
+  modal.refresh();
 }
-
 
 const modal = new SimpleLightbox('.gallery-link', {
-    captions: true,
-  captionsData: 'alt',
-       captionDelay: 250,
- 
-  
-})
+  captions: true,
 
-export function clearGallery() {gallery.innerHTML("")
+  captionDelay: 250,
+});
 
+export function clearGallery() {
+  gallery.innerHTML = '';
 }
 
+const loader = document.querySelector('span');
 
+export function showLoader() {
+  loader.classList.add('loader');
+}
 
-/*showLoader()
-hideLoader() 
-
- */
+export function hideLoader() {
+  loader.classList.toggle('loader');
+}
