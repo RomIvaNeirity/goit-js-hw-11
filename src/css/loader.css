@@ -1,39 +1,8 @@
-/* .loader {
-  width: 240px;
-  height: 8px;
-  display: flex;
-  position: relative;
-  overflow: hidden;
-  margin-left: auto;
-}
-.loader::after {
-  content: '';
-  width: 40px;
-  height: 8px;
-  background: #01611e;
-  position: absolute;
-  top: 0;
-  left: 0;
-  box-sizing: border-box;
-  animation: hitZak 0.3s ease-in-out infinite alternate;
-}
-
-@keyframes hitZak {
-  0% {
-    left: 0;
-    transform: translateX(-1%);
-  }
-  100% {
-    left: 100%;
-    transform: translateX(-99%);
-  }
-} */
-
 .loader {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  display: block;
+  display: none;
   position: absolute;
   color: #02551e;
   right: 0;

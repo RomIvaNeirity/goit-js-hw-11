@@ -55,9 +55,9 @@ export function clearGallery() {
 const loader = document.querySelector('span');
 
 export function showLoader() {
-  loader.classList.add('loader');
+  loader.style.display = 'block';
 }
 
 export function hideLoader() {
-  loader.classList.toggle('loader');
+  loader.style.display = 'none';
 }
