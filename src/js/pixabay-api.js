@@ -12,17 +12,21 @@ function getImagesByQuery(query) {
       orientation: 'horizontal',
       safesearch: true,
     },
-  });
+  })
+    .then(res => res.data)
+    .catch(error => {
+      throw handleAxiosError(error);
+    });
 }
 
-export function handleAxiosError(error) {
+function handleAxiosError(error) {
   let message = '';
   if (error.message === 'Network Error') {
     message = 'ERR_INTERNET_DISCONNECTED';
   } else if (error.response) {
-    message = `Помилка сервера: ${error.response.status}`;
+    message = `ERR_SERVER_ERROR: ${error.response.status}`;
   } else if (error.request) {
-    message = 'Сервер не відповідає.';
+    message = 'ERR_REQUEST_ERROR';
   }
   console.error('Axios error:', error);
   return message;
